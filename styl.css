@@ -1,0 +1,163 @@
+body{
+    margin: 0px;
+    box-sizing: border-box;
+    background-image: url(img/school2.png);
+}
+
+#baner{
+    width:100%;
+    display: flex;
+    background-color: #5d4954;
+    height: 80px;
+
+    align-items: center;
+}
+
+#baner > a{
+  color: #dad7e0;
+  text-decoration: none;
+  display: flex;
+  position: relative;
+  left: 70%;
+  margin-right: 5%;
+  font-size: 30px;
+  font-weight: 50;
+  font-family: 'Poppins', sans-serif;
+  text-transform: uppercase;
+  transition: 0.6s ease;
+}
+#baner > a:hover{
+  border-bottom: 2px solid white;
+}
+#logo{
+    color: #dad7e0;
+    font-size: 40px;
+    font-weight: 200;
+    font-family: 'Poppins', sans-serif;
+    letter-spacing: 5px;
+    position: relative;
+    left: 10%;
+}
+#pojemnik{
+    width:40%;
+    height: 400px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 60px;
+    /*border: 2px solid black;*/
+    
+}
+#pojemnik > label, .wyswietl{
+    color:#dad7e0;
+    font-size: xx-large;
+    font-family: 'Poppins', sans-serif;
+    letter-spacing: 1px;
+}
+#pojemnik > input[type=range]{
+    display: block;
+    width: 50%;
+    height:40px;
+    float:left;
+}
+.przycisk{
+    display: block;
+    width: 20%;
+    height:auto;
+    background: transparent;
+    border:4px solid #5d4954;
+    outline:none;
+    cursor:pointer;
+    color: #dad7e0;
+    font-size: xx-large;
+    font-family: 'Poppins', sans-serif;
+    margin-top: 20px;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-size: 0% 100%;
+    transition: 0.5s;
+    background-image: linear-gradient(#5d4954, #5d4954);
+
+}
+.przycisk:hover{
+    width: 22%;
+    letter-spacing: 2px;
+    background-size: 100% 100%;
+}
+
+/*tyle kodu jest potrzebne zeby input range wygladal troche inaczej*/
+input[type=range] {
+    -webkit-appearance: none;
+    width: 100%;
+    margin: 6.5px 0;
+    background: transparent;
+  }
+  input[type=range]:focus {
+    outline: none;
+  }
+  input[type=range]::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 6px;
+    cursor: pointer;
+    background: #16223a;
+    border-radius: 1.3px;
+  }
+  input[type=range]::-webkit-slider-thumb {
+    height: 19px;
+    width: 20px;
+    border-radius: 20px;
+    background: #5d4954;
+    cursor: pointer;
+    -webkit-appearance: none;
+    margin-top: -6.7px;
+  }
+  input[type=range]:focus::-webkit-slider-runnable-track {
+    background: #16223a;
+  }
+  input[type=range]::-moz-range-track {
+    width: 100%;
+    height: 6px;
+    cursor: pointer;
+    background: #16223a;
+    border-radius: 1.3px;
+  }
+  input[type=range]::-moz-range-thumb {
+    height: 19px;
+    width: 20px;
+    border-radius: 20px;
+    background: #5d4954;
+    cursor: pointer;
+  }
+  input[type=range]::-ms-track {
+    width: 100%;
+    height: 6px;
+    cursor: pointer;
+    background: transparent;
+    border-color: transparent;
+    color: transparent;
+  }
+  input[type=range]::-ms-fill-lower {
+    background: #16223a;
+    border-radius: 2.6px;
+  }
+  input[type=range]::-ms-fill-upper {
+    background: #16223a;
+    border-radius: 2.6px;
+  }
+  input[type=range]::-ms-thumb {
+    height: 19px;
+    width: 20px;
+    border-radius: 20px;
+    background: #5d4954;
+    cursor: pointer;
+    height: 6px;
+  }
+  input[type=range]:focus::-ms-fill-lower {
+    background: #16223a;
+  }
+  input[type=range]:focus::-ms-fill-upper {
+    background: #16223a;
+  }
+  
+  

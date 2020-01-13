@@ -1,0 +1,6 @@
+pole na szczesliwy numerek
+zewnetrzny plik z listami uczniow z klas itd
+pomijanie rozmiaru grupy i pokazywanie najbardziej trafnych
+grafiki z ucznami
+dodanie fontello
+confetti
