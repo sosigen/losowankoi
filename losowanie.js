@@ -96,26 +96,12 @@ function Grupa(uczniowie, grupy){
         this.granice = this.amplitudaGrup()
         
         let najmniejszyIndeks = this.kompletneGrupy.indexOf(this.granice.najmniej)
-        //for
-        /*
-            for(let i=0; i<this.kompletneGrupy[najmniejszyIndeks].length; i++){
-                console.log(i+'%'+this.kompletneGrupy.length)
-                this.kompletneGrupy[i%this.kompletneGrupy.length].push(this.kompletneGrupy[najmniejszyIndeks][i])
-                this.kompletneGrupy[najmniejszyIndeks].splice(i,1)
+        let najwiekszyIndeks = this.kompletneGrupy.indexOf(this.granice.najwiecej)
 
-            }
-            */
-        //while
-        let i=0
-        while(this.kompletneGrupy[najmniejszyIndeks].length != 0){
-            //console.log(i+'%'+this.kompletneGrupy.length)
-            if(i != najmniejszyIndeks){
-            this.kompletneGrupy[i%this.kompletneGrupy.length].push(this.kompletneGrupy[najmniejszyIndeks][i])
-            this.kompletneGrupy[najmniejszyIndeks].splice(i,1)
-            }
-            i++
-        }
-
+       for(let i=0; i<this.granice.najwiecej.length - this.granice.najmniej.length; i++){
+           this.kompletneGrupy[najmniejszyIndeks].push(this.kompletneGrupy[najwiekszyIndeks][i])
+           this.kompletneGrupy[najwiekszyIndeks].splice(i,1)
+       }
         
     }
     
