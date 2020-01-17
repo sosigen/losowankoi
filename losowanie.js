@@ -1,5 +1,5 @@
 //wylosowane grupy będą przechowywane w tej tablicy
-let gotoweGrupy = []
+//let gotoweGrupy = []
 
 //funckja aktywowana przy zmianie wartosci range inputu, pokazuje wartosc ww. inputu
 function wyswietl(wartosc, id){
@@ -9,16 +9,18 @@ function wyswietl(wartosc, id){
 //stworzenie obiektu z użyciem konstruktora i dodanie go do tablicy
 function generujGrupe(){
     //pobranie wartości inputów
-    let wartoscUczniowie = document.querySelector('#uczniowie').value
-    let wartoscGrupy = document.querySelector('#grupy').value
+    let warUczniowie = document.querySelector('#uczniowie').value
+    let warGrupy = document.querySelector('#grupy').value
 
-    if(Number(wartoscUczniowie) > Number(wartoscGrupy)){
-        let grupa = new Grupa(wartoscUczniowie,wartoscGrupy)
-        gotoweGrupy.push(grupa);
-        console.log(gotoweGrupy);
+    if(Number(warUczniowie) > Number(warGrupy)){
+        let grupa = new Grupa(warUczniowie,warGrupy)
+        //gotoweGrupy.push(grupa);
+        console.log(grupa);
+        generujIkony(grupa.kompGrupy)
+
     }
     else{
-        document.write('co ty odpierdalasz');
+        console.log('nieprawidlowe dane: za duży rozmiar grup')
     }
 }
 
@@ -30,29 +32,30 @@ function Grupa(uczniowie, grupy){
     
     this.przydzielGrupy = function(){
         this.iloscGrup = Math.round(this.iloscUczniow/this.rozmiarGrup)
+
         //tablica robocza w której znajdują się tablice poszczególnych grup
         let grupy = new Array(this.iloscGrup)
-        this.kompletneGrupy = []
+        this.kompGrupy = []
 
+         //tworzę tablicę dwuwymiarowa; jedna tablica na grupe
+         for(let i=0; i<grupy.length; i++){
+            grupy[i] = []
+        }
         //sprawdzam czy grupa ma pożądaną długosć, jeśli tak potem 'wyjmę' ją
-        //z tablicy roboczej i przełożę do 'gotowców'(this.kompletneGrupy)
+        //z tablicy roboczej i przełożę do 'gotowców'(this.kompGrupy)
         sprawdzGrupe = (grupa) =>{
                 if(grupa.length == this.rozmiarGrup) return true
                 else return false
             }
         
-        //tworzę tablicę kwadratową; każda dla jednej grupy
-        for(let i=0; i<grupy.length; i++){
-            grupy[i] = []
-        }
         //główna pętla przydzielająca
         for(let i=0; i<this.iloscUczniow; i++){
             //w przypadku gdy tablice zostaną zapełnione, a uczniowie nadal zostali,
             //losowo dodaje ich do gotowych grup
             if(grupy.length==0){
-                let losGrupa = Math.floor(Math.random()*this.kompletneGrupy.length)
+                let losGrupa = Math.floor(Math.random()*this.kompGrupy.length)
                 let losIndeks = Math.floor(Math.random()*this.rozmiarGrup.length)
-                this.kompletneGrupy[losGrupa].splice(losIndeks,0,i)
+                this.kompGrupy[losGrupa].splice(losIndeks,0,i)
             }else{
                 //losuję grupę dla ucznia
                 let wybranaGrupa = Math.floor(Math.random()*grupy.length)
@@ -60,7 +63,7 @@ function Grupa(uczniowie, grupy){
                 grupy[wybranaGrupa].push(i+1)
             //przekładanie tablicy z obszaru roboczego do 'gotowców'
             if(sprawdzGrupe(grupy[wybranaGrupa])){
-                this.kompletneGrupy.push(grupy[wybranaGrupa])
+                this.kompGrupy.push(grupy[wybranaGrupa])
                 grupy.splice(wybranaGrupa, 1)
             }
 
@@ -68,26 +71,22 @@ function Grupa(uczniowie, grupy){
     }
         //w przypadku gdy jakaś grupa 'zawierzuszyła', dodaje ją do gotowych
         while(grupy.length != 0){
-        if(grupy.length > 0) {
-            this.kompletneGrupy.push(grupy[0]);
+            this.kompGrupy.push(grupy[0]);
             grupy.splice(0, 1)
         }
+
     }
-        return grupy
-        
-    
-}
     this.bilansujGrupy = function(){
         this.amplitudaGrup = function(){
             //najmniejsza grupa
-            let najmniejszaGrupa = this.kompletneGrupy[0]
-            for(let i=1; i<this.kompletneGrupy.length; i++){
-                this.kompletneGrupy[i].length < najmniejszaGrupa.length ? najmniejszaGrupa = this.kompletneGrupy[i] : null
+            let najmniejszaGrupa = this.kompGrupy[0]
+            for(let i=1; i<this.kompGrupy.length; i++){
+                this.kompGrupy[i].length < najmniejszaGrupa.length ? najmniejszaGrupa = this.kompGrupy[i] : null
             }
             //najwieksza grupa
-            let najwiekszaGrupa = this.kompletneGrupy[0]
-            for(let i=1; i<this.kompletneGrupy.length; i++){
-                this.kompletneGrupy[i].length > najwiekszaGrupa.length ? najwiekszaGrupa = this.kompletneGrupy[i] : null
+            let najwiekszaGrupa = this.kompGrupy[0]
+            for(let i=1; i<this.kompGrupy.length; i++){
+                this.kompGrupy[i].length > najwiekszaGrupa.length ? najwiekszaGrupa = this.kompGrupy[i] : null
             }
             
             return {najmniej: najmniejszaGrupa,
@@ -95,12 +94,12 @@ function Grupa(uczniowie, grupy){
         }
         this.granice = this.amplitudaGrup()
         
-        let najmniejszyIndeks = this.kompletneGrupy.indexOf(this.granice.najmniej)
-        let najwiekszyIndeks = this.kompletneGrupy.indexOf(this.granice.najwiecej)
+        let najmnIndeks = this.kompGrupy.indexOf(this.granice.najmniej)
+        let najwIndeks = this.kompGrupy.indexOf(this.granice.najwiecej)
 
        for(let i=0; i<this.granice.najwiecej.length - this.granice.najmniej.length; i++){
-           this.kompletneGrupy[najmniejszyIndeks].push(this.kompletneGrupy[najwiekszyIndeks][i])
-           this.kompletneGrupy[najwiekszyIndeks].splice(i,1)
+           this.kompGrupy[najmnIndeks].push(this.kompGrupy[najwIndeks][i])
+           this.kompGrupy[najwIndeks].splice(i,1)
        }
         
     }
