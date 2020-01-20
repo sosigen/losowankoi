@@ -1,32 +1,31 @@
 
-/*function stworzIkone(numer){
+function stworzIkone(numer){
     let ikonka = document.createElement('i')
     ikonka.classList.add('ikonka','icon-user-2' )
     //dodaje 0, gdy liczba jest jednocyfrowa, by calosc byla bardziej symetryczna
     numer <= 9 ? ikonka.innerHTML = `<span>0${numer}</span>` : ikonka.innerHTML = `<span>${numer}</span>`
     document.getElementById('ikony').appendChild(ikonka)
-}*/
+}
 function generujIkony(grupy){
+    let pojemnik = document.getElementById('ikony')
     if(pojemnik.childNodes.length != 0){
         while (pojemnik.firstChild) {
             pojemnik.removeChild(pojemnik.firstChild);
           }
     }
-    for(let i=0; i<grupy.length; i++){
+    let ilosc = grupy.length
+    for(let i=0; i<ilosc; i++){
         for(let j=0; j<grupy[i].length; j++){
             stworzIkone(grupy[i][j])
         }
-        przerwa()
-        /*let enter = document.createElement('div')
+        let enter = document.createElement('div')
         enter.style.clear = 'both';
-        pojemnik.appendChild(enter)*/
+        pojemnik.appendChild(enter)
     }
+    setTimeout(function(){ 
+        let ikonki = document.getElementsByClassName('ikonka')
+        for(let i=0; i<ikonki.length; i++){
+            ikonki[i].style.visibility = 'visible'
+        }
+    }, 1000);
 }
-
-
-let stworzIkone = (numer) =>{
-    numer <= 9 ? numer = '0'+numer : null
-    $('<div>').appendTo('#ikony').addClass( 'ikonka icon-user-2' )
-    .append(`<span>${numer}</span>`)
-}
-let przerwa = () => $('<div>').css("clear","both").appendTo('#ikony')
