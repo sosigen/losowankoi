@@ -177,6 +177,12 @@ input[type=range] {
     left: -48%;
     font-family: 'Nova Mono', monospace;
   }
+  .nawigacja:focus {
+    border-radius: 1000px;
+    background: #3b3136;
+    padding: 15px;  
+}
+
 
   @keyframes wejscie {
     0% {
