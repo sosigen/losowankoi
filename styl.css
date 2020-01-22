@@ -174,7 +174,16 @@ input[type=range] {
     left: -48%;
     font-family: 'Nova Mono', monospace;
   }
+<<<<<<< Updated upstream
 
+=======
+  #ikony{
+    align-items: center;
+    margin: 4%;
+    width: 50%;
+    float: left;
+  }
+>>>>>>> Stashed changes
 @keyframes fade{
   0%{
     opacity: 0;
