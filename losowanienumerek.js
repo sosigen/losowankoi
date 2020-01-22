@@ -1,1 +1,4 @@
- alert(Math.floor(Math.random()*30+1));
+function generujnumerek(){
+let liczbanumereków = document.getElementById("uczniowie").value
+ console.log(Math.floor(Math.random() * liczbanumereków  )+1)
+}
