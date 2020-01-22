@@ -1,0 +1,38 @@
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>Koło losujące wersja 2.0</title>
+  <meta name="Szymon N.">
+
+  <link rel="stylesheet" href="styl.css">
+  <link href="https://fonts.googleapis.com/css?family=Nova+Mono&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/fontello.css" type="text/css" />
+</head>
+
+<body>
+
+  <nav id='baner'>
+      <div id="logo">LOGO</div>
+      <a href='#' class='nawigacja'><i class='icon-users-1'></i></a>
+      <a href='#' class='nawigacja'><i class='icon-user-1'></i></a>
+  </nav>
+  <section id='pojemnik'>
+    <label for='uczniowie'>Ilu uczniów?</label>
+    <input id='uczniowie' type='range' min='3' max='40'
+    oninput="wyswietl(this.value, 'wyswietlUczniow')" onchange="wyswietl(this.value, 'wyswietlUczniow')"/> 
+    <div class="wyswietl" id='wyswietlUczniow'>-</div>
+       <div id='ikony'></div>
+
+  <!--<section class='forma'>
+    <label>lista uczniów</label>
+    <div id="lista"></div>
+    <input type='submit' value='losuj' onclick='losujRaz()'/>
+  </section>-->
+  <script src="losowanie.js"></script>
+  <script src="losowanienumerek.js"></script>
+  <script src='testy.js'></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="animacje.js"></script>
+</body>
+</html>
