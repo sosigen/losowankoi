@@ -166,13 +166,14 @@ input[type=range] {
     display: block;
     width: 6%;
     color:#dad7e0;
-    font-size: 50px;
+    font-size: 40px;
     float:left;
+    cursor: pointer;
     transition: 1s ease-in;
   }
   .ikonka > span{
     color: #5d4954;
-    font-size: 20px;
+    font-size: 15px;
     position: relative;
     left: -48%;
     font-family: 'Nova Mono', monospace;
