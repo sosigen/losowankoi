@@ -174,10 +174,7 @@ input[type=range] {
     left: -48%;
     font-family: 'Nova Mono', monospace;
   }
-  #ikony{
-    align-items: center;
-    margin-top: 50px;
-  }
+
 @keyframes fade{
   0%{
     opacity: 0;
@@ -186,3 +183,9 @@ input[type=range] {
     opacity: 1;
   }
 }
+  .nawigacja:focus {
+    border-radius: 1000px;
+    background: #3b3136;
+    padding: 15px;  
+}
+
