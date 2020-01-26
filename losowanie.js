@@ -1,6 +1,3 @@
-//wylosowane grupy będą przechowywane w tej tablicy
-//let gotoweGrupy = []
-
 //funckja aktywowana przy zmianie wartosci range inputu, pokazuje wartosc ww. inputu
 function wyswietl(wartosc, id){
     document.getElementById(id).innerHTML = wartosc
@@ -9,18 +6,15 @@ function wyswietl(wartosc, id){
 //stworzenie obiektu z użyciem konstruktora i dodanie go do tablicy
 function generujGrupe(){
     //pobranie wartości inputów
-    let warUczniowie = document.querySelector('#uczniowie').value
-    let warGrupy = document.querySelector('#grupy').value
-
-    if(Number(warUczniowie) > Number(warGrupy)){
-        let grupa = new Grupa(warUczniowie,warGrupy)
-        //gotoweGrupy.push(grupa);
+    let uczniowie = document.querySelector('#uczniowie').value
+    let grupy = document.querySelector('#grupy').value
+    if(Number(uczniowie) > Number(grupy)){
+        let grupa = new Grupa(uczniowie,grupy) 
         console.log(grupa);
         generujIkony(grupa.kompGrupy)
-
     }
     else{
-        console.log('nieprawidlowe dane: za duży rozmiar grup')
+        alarm()
     }
 }
 
@@ -37,31 +31,33 @@ function Grupa(uczniowie, grupy){
         let grupy = new Array(this.iloscGrup)
         this.kompGrupy = []
 
-         //tworzę tablicę dwuwymiarowa; jedna tablica na grupe
-         for(let i=0; i<grupy.length; i++){
+        //tworzę tablicę dwuwymiarowa; jedna tablica na grupe
+        for(let i=0; i<grupy.length; i++){
             grupy[i] = []
         }
-        //sprawdzam czy grupa ma pożądaną długosć, jeśli tak potem 'wyjmę' ją
-        //z tablicy roboczej i przełożę do 'gotowców'(this.kompGrupy)
+
+        //funkcja sprawdza czy grupa ma pożądaną długosć, jeśli tak potem 'wyjmę' ją
+        //z tablicy roboczej i przełożę do 'gotowców' (this.kompGrupy)
         sprawdzGrupe = (grupa) =>{
                 if(grupa.length == this.rozmiarGrup) return true
                 else return false
             }
         
         //główna pętla przydzielająca
-        for(let i=0; i<this.iloscUczniow; i++){
+        //i = numer ucznia, dlatego zaczynam od 1
+        for(let i=1; i<=this.iloscUczniow; i++){
             //w przypadku gdy tablice zostaną zapełnione, a uczniowie nadal zostali,
             //losowo dodaje ich do gotowych grup
             if(grupy.length==0){
                 let losGrupa = Math.floor(Math.random()*this.kompGrupy.length)
-                let losIndeks = Math.floor(Math.random()*this.rozmiarGrup.length)
-                this.kompGrupy[losGrupa].splice(losIndeks,0,i)
+                //let losIndeks = Math.floor(Math.random()*this.rozmiarGrup.length)
+                this.kompGrupy[losGrupa].splice(-1,0,i)
             }else{
                 //losuję grupę dla ucznia
                 let wybranaGrupa = Math.floor(Math.random()*grupy.length)
-                //i dodaję go do niej
-                grupy[wybranaGrupa].push(i+1)
-            //przekładanie tablicy z obszaru roboczego do 'gotowców'
+                //dodaję go do niej
+                grupy[wybranaGrupa].push(i)
+            //przekładanie tablicy z obszaru roboczego do gotowej listy
             if(sprawdzGrupe(grupy[wybranaGrupa])){
                 this.kompGrupy.push(grupy[wybranaGrupa])
                 grupy.splice(wybranaGrupa, 1)
@@ -69,41 +65,46 @@ function Grupa(uczniowie, grupy){
 
         }
     }
-        //w przypadku gdy jakaś grupa 'zawierzuszyła', dodaje ją do gotowych
+        //w przypadku gdy grupa nie ma pożądanej długości, lecz pętla 
+        //zakończyła swe działanie, dodaje ją do gotowej listy
         while(grupy.length != 0){
-            this.kompGrupy.push(grupy[0]);
-            grupy.splice(0, 1)
+            this.kompGrupy.push(grupy.pop())
         }
 
     }
+    //gdy liczba uczniow nie jest podzielna przez rozmiar grup, konieczne jest zbilansowanie
     this.bilansujGrupy = function(){
+        //funkcja znajduje najmniejszą i najwieksza grupę
         this.amplitudaGrup = function(){
             //najmniejsza grupa
-            let najmniejszaGrupa = this.kompGrupy[0]
+            let najmniejsza = this.kompGrupy[0]
             for(let i=1; i<this.kompGrupy.length; i++){
-                this.kompGrupy[i].length < najmniejszaGrupa.length ? najmniejszaGrupa = this.kompGrupy[i] : null
+                this.kompGrupy[i].length < najmniejsza.length ? najmniejsza = this.kompGrupy[i] : null
             }
             //najwieksza grupa
-            let najwiekszaGrupa = this.kompGrupy[0]
+            let najwieksza = this.kompGrupy[0]
             for(let i=1; i<this.kompGrupy.length; i++){
-                this.kompGrupy[i].length > najwiekszaGrupa.length ? najwiekszaGrupa = this.kompGrupy[i] : null
+                this.kompGrupy[i].length > najwieksza.length ? najwieksza = this.kompGrupy[i] : null
             }
             
-            return {najmniej: najmniejszaGrupa,
-                    najwiecej: najwiekszaGrupa}
+            return {najmniej: najmniejsza,
+                    najwiecej: najwieksza}
         }
-        this.granice = this.amplitudaGrup()
+        //zapisuje wynik funkcji do zmiennej
+        let granice = this.amplitudaGrup()
         
-        let najmnIndeks = this.kompGrupy.indexOf(this.granice.najmniej)
-        let najwIndeks = this.kompGrupy.indexOf(this.granice.najwiecej)
-
-       for(let i=0; i<this.granice.najwiecej.length - this.granice.najmniej.length; i++){
-           this.kompGrupy[najmnIndeks].push(this.kompGrupy[najwIndeks][i])
-           this.kompGrupy[najwIndeks].splice(i,1)
+        let najmnIndeks = this.kompGrupy.indexOf(granice.najmniej)
+        let najwIndeks = this.kompGrupy.indexOf(granice.najwiecej)
+        //pętla oblicza różnicę między najmniejszą a najwiekszą grupą,
+        //odejmuje od niej 1 i zabiera ww. różnicę z największej grupy i dodaje do najmniejszej
+        for(let i=0; i<granice.najwiecej.length - granice.najmniej.length; i++){
+           let wyjety = this.kompGrupy[najwIndeks].pop()
+           this.kompGrupy[najmnIndeks].push(wyjety)
        }
         
     }
     
     this.przydzielGrupy()
+    //wywolywanie bilansu nie zawsze jest potrzebne 
     if(this.iloscUczniow%this.rozmiarGrup > 1) this.bilansujGrupy()
 }
