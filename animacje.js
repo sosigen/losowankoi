@@ -26,3 +26,10 @@ function alarm(){
     pojemnik.innerHTML = divAlarmowy
     setTimeout(function(){alert('nieprawidłowe dane wejściowe')},500)
 }
+
+function jedyneczka(){
+    $('div').text('1').addClass('jedynka').css({
+        'font-size':'40px',
+        'font-family':'"PT Mono", monospace'
+    }).appendTo(document.body)
+}

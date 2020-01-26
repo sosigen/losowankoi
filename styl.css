@@ -189,10 +189,15 @@ input[type=range] {
     opacity: 1;
   }
 }
-  .nawigacja:focus {
+#nawigacja1:focus {
     border-radius: 1000px;
     background: #3b3136;
-    padding: 15px;  
+    padding: 15px 15px 15px 10px;
+}
+#nawigacja2:focus {
+  border-radius: 1000px;
+  background: #3b3136;
+  padding: 12px;
 }
 
 #ikony > p{
