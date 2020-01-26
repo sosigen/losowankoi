@@ -22,8 +22,9 @@
     <input id='uczniowie' type='range' min='3' max='40'
     oninput="wyswietl(this.value, 'wyswietlUczniow')" onchange="wyswietl(this.value, 'wyswietlUczniow')"/> 
     <div class="wyswietl" id='wyswietlUczniow'>-</div>
-       <div id='ikony'></div>
-
+       <div id='ikony'></div> 
+      <input class='przycisk' type='submit' value='losuj' onclick='generujnumerek()'/>
+ </section>
   <!--<section class='forma'>
     <label>lista uczniów</label>
     <div id="lista"></div>
