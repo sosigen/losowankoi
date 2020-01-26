@@ -14,6 +14,6 @@ do zrobienia:
     lista uczniow w checkboxach do wyboru
     losowanie pojedynczego ucznia
     logo
-    stopka
     dopasowanie do rozdzielczosci
     animacja przy zmianie trybu pracy programu (z grup na pojedynczego i odwrotnie)
+    poprawienie 19 linijki w losowanie.js (niedopracowana)
