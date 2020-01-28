@@ -7,42 +7,6 @@
   "ascent": 850,
   "glyphs": [
     {
-      "uid": "bbd66ef66bb8fa9edde54d9a90b89150",
-      "css": "user",
-      "code": 59394,
-      "src": "entypo"
-    },
-    {
-      "uid": "ecf8edb95c3f45eb433b4cce7ba9f740",
-      "css": "users",
-      "code": 59395,
-      "src": "entypo"
-    },
-    {
-      "uid": "40c9502d45c736a0a6ec45e6fbc28656",
-      "css": "ok-outline",
-      "code": 59397,
-      "src": "typicons"
-    },
-    {
-      "uid": "43fl9m553j1z5937vfjz0lgolrlspxwl",
-      "css": "ok",
-      "code": 59398,
-      "src": "typicons"
-    },
-    {
-      "uid": "24aba8757d4a7b49568c98a577a85df3",
-      "css": "cancel-outline",
-      "code": 59399,
-      "src": "typicons"
-    },
-    {
-      "uid": "1dq4tek4k8ea7zlj4kc3w83itnutaxg5",
-      "css": "cancel",
-      "code": 59400,
-      "src": "typicons"
-    },
-    {
       "uid": "lu2wqmd7v9zp21knhy4eifo41wjp4cnx",
       "css": "th-list",
       "code": 59401,
@@ -70,12 +34,6 @@
       "uid": "8b80d36d4ef43889db10bc1f0dc9a862",
       "css": "user-2",
       "code": 59406,
-      "src": "fontawesome"
-    },
-    {
-      "uid": "1bafeeb1808a5fe24484c7890096901a",
-      "css": "user-plus",
-      "code": 62004,
       "src": "fontawesome"
     },
     {
