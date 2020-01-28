@@ -1,0 +1,33 @@
+.przejsciePrawo{
+    animation: zPrawej 0.7s;
+}
+@keyframes zPrawej{
+    0%{
+        transform: translateX(90%);
+        opacity: 0;
+    }
+    90%{
+        transform: translateX(-5%);
+    }
+    100%{
+        transform: translateX(0%);
+        opacity: 1;
+    }
+}
+
+.przejscieLewo{
+    animation: zLewej 0.7s;
+}
+@keyframes zLewej{
+    0%{
+        transform: translateX(-70%);
+        opacity: 0;
+    }
+    90%{
+        transform: translateX(5%);
+    }
+    100%{
+        transform: translateX(0%);
+        opacity: 1;
+    }
+}

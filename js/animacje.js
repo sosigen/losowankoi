@@ -3,21 +3,20 @@ function generujIkony(grupy){
     
     for(let i=0; i<grupy.length; i++){
         for(let j=0; j<grupy[i].length; j++){
-            opoznienie(stworzIkone(grupy[i][j]), i+j)
+            stworzIkone(grupy[i][j], '#ikony')
 
         }
         przerwa()
     }
 }
-let stworzIkone = (numer) =>{
+let stworzIkone = (numer, gdzie) =>{
     numer <= 9 ? numer = '0' + numer : null
-    $('<div>').appendTo('#ikony')
-    .addClass( 'ikonka icon-user-2' )
+    $('<div>').appendTo(gdzie)
+    .addClass( 'ikonka icon-user-2 przejsciePrawo' )
     .append(`<span>${numer}</span>`)
     }
 
 let przerwa = () => $('<div>').css("clear","both").appendTo('#ikony')
-let opoznienie = (funkcja, czas) => setTimeout(funkcja, 1000)
 
 function alarm(){
     let divAlarmowy = '<div id="ostrzezenie" class="icon-attention"></div>'

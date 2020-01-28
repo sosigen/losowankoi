@@ -1,0 +1,37 @@
+<!doctype html>
+<head>
+  <meta charset="utf-8">
+  <title>Koło losujące wersja 2.0</title>
+  <meta name="Szymon Nowacki">
+  <link rel="stylesheet" href="css/styl.css">
+  <link rel="stylesheet" href="css/gornyPanel.css">
+  <link rel="stylesheet" href="css/suwak.css">
+  <link rel="stylesheet" href="css/fontello.css"/>
+  <link rel="stylesheet" href="css/przejsciaStron.css"/>
+  <link href="https://fonts.googleapis.com/css?family=Nova+Mono&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <nav id='baner'>
+      <div id="logo">LOGO</div>
+      <a href='losowanieGrupa.html' class='nawigacja'><i class='icon-users-1'></i></a>
+      <a href='losowaniePoj.html' class='nawigacja'><i class='icon-user-1'></i></a>
+  </nav>
+  <section id='pojemnik' class="przejscieLewo">
+    <label for='uczniowie'>Ilu uczniów?</label>
+    <input id='uczniowie' type='range' min='3' max='40'
+    oninput="wyswietl(this.value, 'wyswietlUczniow2')" 
+    onchange="wyswietl(this.value, 'wyswietlUczniow2')"/> 
+    <div class="wyswietl" id='wyswietlUczniow2'>-</div>
+    <input class='przycisk' type='submit' value='losuj' onclick='losujUcznia()'/>
+ </section>
+ <div id="wynik"></div>
+
+  <script src="js/losowaniePoj.js"></script>
+  <script src="js/losowanieGrupa.js"></script>
+  <script src='js/testy.js'></script>
+  <script src="js/animacje.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+</body>
+</html>

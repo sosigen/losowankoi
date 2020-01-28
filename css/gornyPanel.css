@@ -1,0 +1,40 @@
+#baner{
+    width:100%;
+    display: flex;
+    background-color: #5d4954;
+    height: 80px;
+    align-items: center;
+}
+
+#baner > a{
+  color: #dad7e0;
+  text-decoration: none;
+  display: flex;
+  position: relative;
+  left: 70%;
+  margin-right: 5%;
+  font-size: 30px;
+  font-weight: 50;
+  font-family: 'PT Mono', monospace;
+  text-transform: uppercase;
+  transition: 0.6s ease;
+}
+#logo{
+    color: #dad7e0;
+    font-size: 40px;
+    font-weight: 200;
+    font-family: 'PT Mono', monospace;
+    letter-spacing: 5px;
+    position: relative;
+    left: 10%;
+}
+#nawigacja1:focus {
+  border-radius: 1000px;
+  background: #3b3136;
+  padding: 15px 15px 15px 10px;
+}
+#nawigacja2:focus {
+  border-radius: 1000px;
+  background: #3b3136;
+  padding: 12px;
+}
