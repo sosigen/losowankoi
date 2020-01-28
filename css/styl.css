@@ -56,7 +56,7 @@ body{
 }
 
 /*obszar wyniku*/
-  .ikonka{
+.ikonka{
     display: none;
     display: block;
     color:#dad7e0;
@@ -65,7 +65,7 @@ body{
     cursor: pointer;
     animation: fade 1s;
   }
-  .ikonka > span{
+.ikonka > span{
     color: #5d4954;
     font-size: 15px;
     position: relative;
@@ -73,9 +73,9 @@ body{
     font-family: 'PT Mono', monospace;
   }
 
-  #ikony{
+#ikony{
     align-items: center;
-    margin: 4%;
+    margin: 60px;
     width: 50%;
     float: left;
   }
@@ -86,14 +86,14 @@ body{
   font-family: 'PT Mono', monospace;
   color: #dad7e0;
 }
-#ostrzezenie {
+#ostrzezenie{
   font-size: 20rem;
   color:#5d4954;
   animation: pojawienie 0.5s;
 }
 
 #wynik{
-  margin: 40px;
+  margin: 60px;
   font-family: 'PT Mono', monospace;
 }
 
