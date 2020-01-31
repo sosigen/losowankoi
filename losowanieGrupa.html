@@ -1,8 +1,9 @@
 <!doctype html>
 <head>
   <meta charset="utf-8">
-  <title>Koło losujące wersja 2.0</title>
+  <title>losowanko zapraszam</title>
   <meta name="Szymon Nowacki">
+  <meta name='viewport' content='width=device-width, initial-scale=1.0'/>
 
   <link rel="stylesheet" href="css/styl.css">
   <link rel="stylesheet" href="css/gornyPanel.css">
@@ -10,6 +11,7 @@
   <link rel="stylesheet" href="css/fontello.css"/>
   <link rel="stylesheet" href="css/przejscia.css"/>
   <link rel="stylesheet" href="css/pasekPrzewijania.css"/>
+  <link rel="stylesheet" href="css/responsywnosc.css"/>
   <link href="https://fonts.googleapis.com/css?family=PT+Mono&display=swap" rel="stylesheet">
 </head>
 
@@ -28,7 +30,7 @@
     <div class="wyswietl" id='wyswietlUczniow'>-</div>
 
     <label for='grupy'>Jak duże grupy?</label>
-    <input id='grupy' type='range' min='2' max='10' 
+    <input id='grupy' type='range' min='2' max='8' 
     oninput="wyswietl(this.value, 'wyswietlGrupy')" 
     onchange="wyswietl(this.value, 'wyswietlGrupy')"/>
     <div class="wyswietl" id='wyswietlGrupy' >-</div>
@@ -39,5 +41,7 @@
   <script src="js/testy.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="js/animacje.js"></script>
+  <script src="js/rozdzielczosc.js"></script>
+
 </body>
 </html>

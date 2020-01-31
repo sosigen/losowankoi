@@ -2,56 +2,50 @@ body{
     margin: 0px;
     box-sizing: border-box;
     background-image: url(/img/school2.png);
+    font-family: 'PT Mono', monospace;
 }
 
 /*głowny obszar strony*/
 #pojemnik{
     width:40%;
-    height: 400px;
-    margin-left: auto;
-    margin-right: auto;
     display: flex;
     flex-direction: column;
     align-items: center;
     margin-top: 60px;
     float: left;
-    
 }
 #pojemnik > label, .wyswietl{
     color:#dad7e0;
     font-size: xx-large;
-    font-family: 'PT Mono', monospace;
-    letter-spacing: 1px;
 }
 #pojemnik > input[type=range]{
     display: block;
     width: 50%;
     height:40px;
-    float:left;
 }
 
 .przycisk{
     display: block;
-    width: 20%;
-    height:auto;
+    width: 120px;
+    height: 60px;
     background: transparent;
     border:4px solid #5d4954;
     outline:none;
     cursor:pointer;
     color: #dad7e0;
     font-size: xx-large;
-    font-family: 'PT Mono', monospace;
     margin-top: 20px;
     background-position: 50% 50%;
     background-repeat: no-repeat;
     background-size: 0% 100%;
     transition: 0.5s;
     background-image: linear-gradient(#5d4954, #5d4954);
+    letter-spacing: 2px;
 
 }
 .przycisk:hover{
-    width: 22%;
-    letter-spacing: 2px;
+    width: 140px;
+    letter-spacing: 4px;
     background-size: 100% 100%;
 }
 
@@ -70,7 +64,6 @@ body{
     font-size: 15px;
     position: relative;
     left: -48%;
-    font-family: 'PT Mono', monospace;
   }
 
 #ikony{
@@ -83,18 +76,17 @@ body{
 
 #ikony > p{
   font-size: xx-large;
-  font-family: 'PT Mono', monospace;
   color: #dad7e0;
 }
 #ostrzezenie{
-  font-size: 20rem;
+  font-size: 320px;
   color:#5d4954;
-  animation: pojawienie 0.5s;
+  animation: puls 1s;
+  transform-origin: 25% 50%;
 }
 
 #wynik{
   margin: 60px;
-  font-family: 'PT Mono', monospace;
 }
 
 /*animacje*/
@@ -106,14 +98,19 @@ body{
     opacity: 1;
   }
 }
-@keyframes pojawienie{
+@keyframes puls{
   0%{
     opacity: 0;
-    transform: rotate(180deg);
+    transform: scale(0);
   }
-
+  60%{
+    transform: scale(1.2);
+  }
+  80%{
+    transform: scale(0.8);
+  }
   100%{
     opacity: 1;
-    transform: rotate(0deg);
+    transform: scale(1);
   }
 }

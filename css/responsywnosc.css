@@ -1,0 +1,99 @@
+
+@media only screen 
+and (max-width: 1300px){
+    .ikonka{
+        font-size: 37px;
+    }
+    .ikonka > span{
+        font-size: 14.5px;
+    }
+
+}
+@media only screen 
+and (max-width: 1200px){
+    #ikony{
+        width: 100%;
+        margin-left: 50px;
+    }
+    .ikonka{
+        font-size: 37px;
+    }
+    .ikonka > span{
+        font-size: 14px;
+    }
+    #pojemnik{
+        margin-left: 300px;
+    }
+}
+
+@media only screen 
+and (max-width: 870px){
+    #baner > a{
+        left: 60%;
+    }
+    #pojemnik{
+        margin-left: 200px;
+    }
+}
+@media only screen 
+and (max-width : 740px) {
+
+    #pojemnik > label{
+        font-size: 27px;
+    }
+    .przycisk{
+        font-size: 30px;
+        width: 110px;
+        height: 55px;
+    }
+    #pojemnik{
+        margin-left: 170px;
+    }
+
+}
+@media only screen 
+and (max-width : 680px) {
+    #pojemnik > label, .wyswietl{
+        font-size: 25px;
+    }
+    .przycisk{
+        font-size: 25px;
+        width: 90px;
+        height: 45px;
+    }
+    .przycisk:hover{
+        width: 100px;
+        letter-spacing: 4px;
+        background-size: 100% 100%;
+    }
+    #baner > a{
+        left: 50%;
+    }
+    .wyswietl{
+        margin-bottom: 20px;
+    }
+    #ikony{
+        margin-left: 20px;
+    }
+    .ikonka{
+        font-size: 32px;
+    }
+    .ikonka > span{
+        font-size: 13px;
+    }
+    #pojemnik{
+        margin-left: 140px;
+    }
+}
+@media only screen
+and (max-width: 562px){
+    #pojemnik > label, .wyswietl{
+        font-size: 22px;
+    }
+    .ikonka{
+        font-size: 28px;
+    }
+    .ikonka > span{
+        font-size: 11px;
+    }
+}

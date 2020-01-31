@@ -103,7 +103,7 @@ function Grupa(uczniowie, grupy){
        }
         
     }
-    
+    //wywolanie glownej metody
     this.przydzielGrupy()
     //wywolywanie bilansu nie zawsze jest potrzebne 
     if(this.iloscUczniow%this.rozmiarGrup > 1) this.bilansujGrupy()

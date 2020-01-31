@@ -23,7 +23,7 @@ function alarm(){
     let tekst =  '<p>nieprawidłowe dane wejściowe</p>'
     let pojemnik = document.querySelector('#ikony')
     pojemnik.innerHTML = divAlarmowy
-    setTimeout(function(){alert('nieprawidłowe dane wejściowe')},500)
+    //setTimeout(function(){alert('nieprawidłowe dane wejściowe')},500)
 }
 
 function jedyneczka(){
