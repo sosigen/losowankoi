@@ -3,6 +3,9 @@ body{
     box-sizing: border-box;
     background-image: url(/img/school2.png);
     font-family: 'PT Mono', monospace;
+    -moz-user-select: none; 
+    -ms-user-select: none; 
+    user-select: none;
 }
 
 /*głowny obszar strony*/
@@ -17,6 +20,9 @@ body{
 #pojemnik > label, .wyswietl{
     color:#dad7e0;
     font-size: xx-large;
+}
+.wyswietl{
+  margin-bottom: 20px;
 }
 #pojemnik > input[type=range]{
     display: block;
@@ -83,10 +89,19 @@ body{
   color:#5d4954;
   animation: puls 1s;
   transform-origin: 25% 50%;
+  text-align: center;
+  align-items: center;
 }
 
 #wynik{
-  margin: 60px;
+  margin-left: 30%;
+  margin-top: 100px;
+}
+#wynik > .ikonka{
+  font-size: 200px;
+}
+#wynik > .ikonka > span{
+  font-size: 77px;
 }
 
 /*animacje*/

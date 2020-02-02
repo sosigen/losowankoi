@@ -1,13 +1,13 @@
 .przejsciePrawo{
-    animation: zPrawej 0.7s;
+    animation: zPrawej 0.5s ease-out;
 }
 @keyframes zPrawej{
     0%{
-        transform: translateX(90%);
+        transform: translateX(10%);
         opacity: 0;
     }
     90%{
-        transform: translateX(-5%);
+        transform: translateX(-3%);
     }
     100%{
         transform: translateX(0%);
@@ -16,15 +16,15 @@
 }
 
 .przejscieLewo{
-    animation: zLewej 0.7s;
+    animation: zLewej 0.5s ease-out;
 }
 @keyframes zLewej{
     0%{
-        transform: translateX(-70%);
+        transform: translateX(-10%);
         opacity: 0;
     }
     90%{
-        transform: translateX(5%);
+        transform: translateX(3%);
     }
     100%{
         transform: translateX(0%);
