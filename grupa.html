@@ -18,8 +18,8 @@
 <body>
   <nav id='baner'>
       <div id="logo">LOGO</div>
-      <a href='losowanieGrupa.html' id='nawigacja1'><i class='icon-users-1'></i></a>
-      <a href='losowaniePoj.html' id='nawigacja2'><i class='icon-user-1'></i></a>
+      <a href='grupa.html' id='nawigacja1'><i class='icon-users-1'></i></a>
+      <a href='jeden.html' id='nawigacja2'><i class='icon-user-1'></i></a>
   </nav>
   
   <section id='pojemnik' class="przejscieLewo">
@@ -29,7 +29,7 @@
     onchange="wyswietl(this.value, 'wyswietlUczniow')"/> 
     <div class="wyswietl" id='wyswietlUczniow'>-</div>
 
-    <label for='grupy'>Jak duże grupy?</label>
+    <label for='grupy'>Jak duże grupy?</label> <div id='zmiana' class='icon-spin3' onclick='zamiana()'></div>
     <input id='grupy' type='range' min='2' max='8' 
     oninput="wyswietl(this.value, 'wyswietlGrupy')" 
     onchange="wyswietl(this.value, 'wyswietlGrupy')"/>

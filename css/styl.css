@@ -104,6 +104,18 @@ body{
   font-size: 77px;
 }
 
+label[for='grupy']{
+  float: left;
+}
+#zmiana{
+  font-size: 30px;
+  color: #dad7e0;
+  margin: 10px;
+  cursor: pointer;
+}
+#zmiana:hover{
+  animation: obrot 2s infinite;
+}
 /*animacje*/
 @keyframes fade{
   0%{
@@ -127,5 +139,14 @@ body{
   100%{
     opacity: 1;
     transform: scale(1);
+  }
+}
+@keyframes obrot {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(359deg);
   }
 }

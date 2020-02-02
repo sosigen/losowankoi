@@ -8,10 +8,17 @@ function generujGrupe(){
     //pobranie wartości inputów
     let uczniowie = document.querySelector('#uczniowie').value
     let grupy = document.querySelector('#grupy').value
+
     if(Number(uczniowie) > Number(grupy)){
-        let grupa = new Grupa(uczniowie,grupy) 
-        console.log(grupa);
-        generujIkony(grupa.kompGrupy)
+        if(document.querySelector('label[for="grupy"]').innerText == 'Ile grup?'){
+            let grupa = new Grupa(uczniowie,rozmiar = -1, ilosc = grupy)
+            console.log(grupa)
+            generujIkony(grupa.kompGrupy)
+        }else{
+            let grupa = new Grupa(uczniowie,rozmiar = grupy, ilosc = -1) 
+            console.log(grupa)
+            generujIkony(grupa.kompGrupy)
+        }
     }
     else{
         alarm()
@@ -19,14 +26,20 @@ function generujGrupe(){
 }
 
 //główny konstruktor tworzący grupy
-function Grupa(uczniowie, grupy){
-
+function Grupa(uczniowie, rozmiar, ilosc){
     this.iloscUczniow = uczniowie
-    this.rozmiarGrup = grupy
-    
-    this.przydzielGrupy = function(){
+    if(rozmiar == -1) {
+        this.iloscGrup = Number(ilosc)
+        this.rozmiarGrup = Math.round(Number(this.iloscUczniow) / Number(this.iloscGrup))
+        console.log('ilosc '+this.iloscGrup, 'rozmiar '+this.rozmiarGrup)
+    }
+    if(ilosc == -1){
+        this.rozmiarGrup = Number(rozmiar)
         this.iloscGrup = Math.round(this.iloscUczniow/this.rozmiarGrup)
+        console.log('rozmiar '+this.rozmiarGrup, 'ilosc '+this.iloscGrup)
+    }
 
+    this.przydzielGrupy = function(){
         //tablica robocza w której znajdują się tablice poszczególnych grup
         let grupy = new Array(this.iloscGrup)
         this.kompGrupy = []

@@ -29,3 +29,9 @@ function alarm(){
     setTimeout(function(){alert('nieprawidłowe dane wejściowe')},500)
 }
 
+function zamiana(){
+    $("label[for='grupy']").text(function(i, zwrot){
+        return zwrot === 'Jak duże grupy?' ? 'Ile grup?' : 'Jak duże grupy?'
+    })
+
+}
