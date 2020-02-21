@@ -1,142 +1,145 @@
-body{
-    margin: 0px;
-    box-sizing: border-box;
-    background-image: url(../img/school2.png);
-    font-family: 'PT Mono', monospace;
-    -moz-user-select: none; 
-    -ms-user-select: none; 
-    user-select: none;
+body {
+  margin: 0px;
+  box-sizing: border-box;
+  background-image: url(../img/school2.png);
+  font-family: "PT Mono", monospace;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 /*głowny obszar strony*/
-#pojemnik{
-    width:40%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 60px;
-    float: left;
+#pojemnik {
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 60px;
+  float: left;
 }
-#pojemnik > label, .wyswietl{
-    color:#dad7e0;
-    font-size: xx-large;
+#pojemnik > label,
+.wyswietl {
+  color: #dad7e0;
+  font-size: xx-large;
 }
-.wyswietl{
+.wyswietl {
   margin-bottom: 20px;
 }
-#pojemnik > input[type=range]{
-    display: block;
-    width: 50%;
-    height:40px;
+#pojemnik > input[type="range"] {
+  display: block;
+  width: 50%;
+  height: 40px;
 }
 
-.przycisk{
-    display: block;
-    width: 120px;
-    height: 60px;
-    background: transparent;
-    border:4px solid #5d4954;
-    outline:none;
-    cursor:pointer;
-    color: #dad7e0;
-    font-size: xx-large;
-    margin-top: 20px;
-    background-position: 50% 50%;
-    background-repeat: no-repeat;
-    background-size: 0% 100%;
-    transition: 0.5s;
-    background-image: linear-gradient(#5d4954, #5d4954);
-    letter-spacing: 2px;
-
+.przycisk {
+  display: block;
+  width: 120px;
+  height: 60px;
+  background: transparent;
+  border: 4px solid #5d4954;
+  outline: none;
+  cursor: pointer;
+  color: #dad7e0;
+  font-size: xx-large;
+  margin-top: 20px;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-size: 0% 100%;
+  transition: 0.5s;
+  background-image: linear-gradient(#5d4954, #5d4954);
+  letter-spacing: 2px;
 }
-.przycisk:hover{
-    width: 140px;
-    letter-spacing: 4px;
-    background-size: 100% 100%;
+.przycisk:hover {
+  width: 140px;
+  letter-spacing: 4px;
+  background-size: 100% 100%;
+}
+label[for="grupy"] {
+  float: left;
+}
+.dostosuj {
+  font-size: 30px;
+  color: #dad7e0;
+  margin: 10px;
+  cursor: pointer;
+}
+.dostosuj:hover {
+  animation: obrot 2s;
+}
+label[for="uczniowie"] {
+  float: left;
 }
 
 /*obszar wyniku*/
-.ikonka{
-    display: none;
-    display: block;
-    color:#dad7e0;
-    font-size: 40px;
-    float:left;
-    cursor: pointer;
-    animation: fade 1s;
-  }
-.ikonka > span{
-    color: #5d4954;
-    font-size: 15px;
-    position: relative;
-    left: -48%;
-  }
+.ikonka {
+  display: none;
+  display: block;
+  color: #dad7e0;
+  font-size: 40px;
+  float: left;
+  cursor: pointer;
+  animation: fade 1s;
+}
+.ikonka > span {
+  color: #5d4954;
+  font-size: 15px;
+  position: relative;
+  left: -48%;
+  z-index: 1;
+}
 
-#ikony{
-    align-items: center;
-    margin: 60px;
-    width: 50%;
-    float: left;
-  }
+#ikony {
+  align-items: center;
+  margin: 60px;
+  width: 50%;
+  float: left;
+}
 
-
-#ikony > p{
+#ikony > p {
   font-size: xx-large;
   color: #dad7e0;
 }
-#ostrzezenie{
+#ostrzezenie {
   font-size: 320px;
-  color:#5d4954;
+  color: #5d4954;
   animation: puls 1s;
   transform-origin: 25% 50%;
   text-align: center;
   align-items: center;
 }
 
-#wynik{
+#wynik {
   margin-left: 30%;
   margin-top: 100px;
 }
-#wynik > .ikonka{
+#wynik > .ikonka {
   font-size: 200px;
 }
-#wynik > .ikonka > span{
+#wynik > .ikonka > span {
   font-size: 77px;
 }
 
-label[for='grupy']{
-  float: left;
-}
-#zmiana{
-  font-size: 30px;
-  color: #dad7e0;
-  margin: 10px;
-  cursor: pointer;
-}
-#zmiana:hover{
-  animation: obrot 2s infinite;
-}
 /*animacje*/
-@keyframes fade{
-  0%{
+@keyframes fade {
+  0% {
     opacity: 0;
   }
-  100%{
+  100% {
     opacity: 1;
   }
 }
-@keyframes puls{
-  0%{
+@keyframes puls {
+  0% {
     opacity: 0;
     transform: scale(0);
   }
-  60%{
+  60% {
     transform: scale(1.2);
   }
-  80%{
+  80% {
     transform: scale(0.8);
   }
-  100%{
+  100% {
     opacity: 1;
     transform: scale(1);
   }

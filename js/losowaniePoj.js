@@ -9,9 +9,9 @@ function generujnumerek2(){
     document.body.appendChild(liczmy);
     }
 */
-function losujUcznia(){
-    document.querySelector('#wynik').innerHTML = ''
-    let max = document.getElementById("uczniowie").value
-    const pytany = Math.round(Math.random()*max)+1
-    stworzIkone(pytany, '#wynik')
-    }
+function losujUcznia() {
+  document.querySelector("#wynik").innerHTML = "";
+  let max = document.getElementById("uczniowie").value;
+  const pytany = Math.round(Math.random() * max) + 1;
+  stworzIkone(pytany, "#wynik");
+}
