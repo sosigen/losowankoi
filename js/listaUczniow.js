@@ -1,3 +1,8 @@
+//funckja aktywowana przy zmianie wartosci range inputu, pokazuje wartosc ww. inputu
+function wyswietl(wartosc, id) {
+    document.getElementById(id).innerHTML = wartosc;
+  }
+let aktywni = []
 let wyswietlListeUczniow = function(){
     let iloscUczniow = document.querySelector('#uczniowie').value
     let ikony = document.querySelector('#ikony')
@@ -10,25 +15,29 @@ let wyswietlListeUczniow = function(){
 
     }
     let dzieci = ikony.childNodes
-    console.log(dzieci.length)
     for(let i=0; i<dzieci.length; i++){
         dzieci[i].addEventListener("click", function(){
             zmianaStanu(this)
         })
         dzieci[i].dataset.aktywnosc = 'on'
+        aktywni.push(Number(dzieci[i].innerText))
     }
     
 
 }
 let zmianaStanu = (ikonka) => {
+    let wyswietlacz = document.querySelector('#wyswietlUczniow')
     if(ikonka.dataset.aktywnosc === 'on'){
         ikonka.style.opacity = '0.3'
         ikonka.dataset.aktywnosc = 'off'
+        aktywni.splice(aktywni.indexOf(Number(ikonka.innerText)), 1);
+        wyswietl(Number(wyswietlacz.innerText)-1, 'wyswietlUczniow')
     }else if(ikonka.dataset.aktywnosc === 'off'){
         ikonka.style.opacity = '1'
         ikonka.dataset.aktywnosc = 'on'
+        aktywni.push(Number(ikonka.innerText))
+        wyswietl(Number(wyswietlacz.innerText)+1, 'wyswietlUczniow')
     }
-
 }
 
 

@@ -1,42 +1,44 @@
-//funckja aktywowana przy zmianie wartosci range inputu, pokazuje wartosc ww. inputu
-function wyswietl(wartosc, id) {
-  document.getElementById(id).innerHTML = wartosc;
-}
-
 //stworzenie obiektu z użyciem konstruktora i dodanie go do tablicy
 function generujGrupe() {
   //pobranie wartości inputów
-  let uczniowie = document.querySelector("#uczniowie").value;
+  let uczniowie = []
+  if(aktywni.length != 0) uczniowie = aktywni
+  else{
+    for(let i=1; i<=document.querySelector("#uczniowie").value; i++){
+      uczniowie.push(i)
+    }
+  }
   let grupy = document.querySelector("#grupy").value;
-
-  if (Number(uczniowie) > Number(grupy)) {
+  if(uczniowie.length > Number(grupy)){
     if (document.querySelector('label[for="grupy"]').innerText == "Ile grup?") {
       let grupa = new Grupa(uczniowie, (rozmiar = -1), (ilosc = grupy));
       console.log(grupa);
       generujIkony(grupa.kompGrupy);
-    } else {
+    }else{
       let grupa = new Grupa(uczniowie, (rozmiar = grupy), (ilosc = -1));
       console.log(grupa);
       generujIkony(grupa.kompGrupy);
     }
-  } else {
+  }else{
     alarm();
   }
 }
 
 //główny konstruktor tworzący grupy
 function Grupa(uczniowie, rozmiar, ilosc) {
-  this.iloscUczniow = uczniowie;
+  this.uczniowie = uczniowie;
+  //w zaleznosci od tego czy dostepny jest rozmiar, czy ilosc generuje
+  //na tej podstawie resztę potrzebnych wartości
   if (rozmiar == -1) {
     this.iloscGrup = Number(ilosc);
     this.rozmiarGrup = Math.round(
-      Number(this.iloscUczniow) / Number(this.iloscGrup)
+      this.uczniowie.length / Number(this.iloscGrup)
     );
-    console.log("ilosc " + this.iloscGrup, "rozmiar " + this.rozmiarGrup);
+   console.log("ilosc " + this.iloscGrup, "rozmiar " + this.rozmiarGrup);
   }
   if (ilosc == -1) {
     this.rozmiarGrup = Number(rozmiar);
-    this.iloscGrup = Math.round(this.iloscUczniow / this.rozmiarGrup);
+    this.iloscGrup = Math.round(this.uczniowie.length / this.rozmiarGrup);
     console.log("rozmiar " + this.rozmiarGrup, "ilosc " + this.iloscGrup);
   }
 
@@ -59,18 +61,17 @@ function Grupa(uczniowie, rozmiar, ilosc) {
 
     //główna pętla przydzielająca
     //i = numer ucznia, dlatego zaczynam od 1
-    for (let i = 1; i <= this.iloscUczniow; i++) {
+    for (let i = 0; i <this.uczniowie.length; i++) {
       //w przypadku gdy tablice zostaną zapełnione, a uczniowie nadal zostali,
       //losowo dodaje ich do gotowych grup
       if (grupy.length == 0) {
         let losGrupa = Math.floor(Math.random() * this.kompGrupy.length);
-        //let losIndeks = Math.floor(Math.random()*this.rozmiarGrup.length)
-        this.kompGrupy[losGrupa].splice(-1, 0, i);
+        this.kompGrupy[losGrupa].splice(-1, 0, this.uczniowie[i]);
       } else {
         //losuję grupę dla ucznia
         let wybranaGrupa = Math.floor(Math.random() * grupy.length);
         //dodaję go do niej
-        grupy[wybranaGrupa].push(i);
+        grupy[wybranaGrupa].push(this.uczniowie[i]);
         //przekładanie tablicy z obszaru roboczego do gotowej listy
         if (sprawdzGrupe(grupy[wybranaGrupa])) {
           this.kompGrupy.push(grupy[wybranaGrupa]);
@@ -83,7 +84,7 @@ function Grupa(uczniowie, rozmiar, ilosc) {
     while (grupy.length != 0) {
       this.kompGrupy.push(grupy.pop());
     }
-  };
+  }
   //gdy liczba uczniow nie jest podzielna przez rozmiar grup, konieczne jest zbilansowanie
   this.bilansujGrupy = function() {
     //funkcja znajduje najmniejszą i najwieksza grupę
@@ -107,7 +108,7 @@ function Grupa(uczniowie, rozmiar, ilosc) {
     };
     //zapisuje wynik funkcji do zmiennej
     let granice = this.amplitudaGrup();
-
+    //this.granice = this.amplitudaGrup();
     let najmnIndeks = this.kompGrupy.indexOf(granice.najmniej);
     let najwIndeks = this.kompGrupy.indexOf(granice.najwiecej);
     //pętla oblicza różnicę między najmniejszą a najwiekszą grupą,
@@ -124,5 +125,5 @@ function Grupa(uczniowie, rozmiar, ilosc) {
   //wywolanie glownej metody
   this.przydzielGrupy();
   //wywolywanie bilansu nie zawsze jest potrzebne
-  if (this.iloscUczniow % this.rozmiarGrup > 1) this.bilansujGrupy();
+  if (this.uczniowie.length % this.rozmiarGrup > 1) this.bilansujGrupy();
 }
