@@ -6,22 +6,24 @@ let aktywni = []
 let wyswietlListeUczniow = function(){
     let iloscUczniow = document.querySelector('#uczniowie').value
     let ikony = document.querySelector('#ikony')
+    if(ikony.innerText === ''){
+        for(let i=1; i<=iloscUczniow; i++){
+            stworzIkone(i,'#ikony')
 
-    ikony.innerHTML = ''
-
+        }
+        let dzieci = ikony.childNodes
+        for(let i=0; i<dzieci.length; i++){
+            dzieci[i].addEventListener("click", function(){
+                zmianaStanu(this)
+            })
+            dzieci[i].dataset.aktywnosc = 'on'
+            aktywni.push(Number(dzieci[i].innerText))
+        }
+    }else{
+        ikony.innerHTML = ''
+    }
     
-    for(let i=1; i<=iloscUczniow; i++){
-        stworzIkone(i,'#ikony')
-
-    }
-    let dzieci = ikony.childNodes
-    for(let i=0; i<dzieci.length; i++){
-        dzieci[i].addEventListener("click", function(){
-            zmianaStanu(this)
-        })
-        dzieci[i].dataset.aktywnosc = 'on'
-        aktywni.push(Number(dzieci[i].innerText))
-    }
+    
     
 
 }

@@ -9,7 +9,7 @@ function najwiekszaRoznica(){
             for(let k=0; k<j; k++){
                 uczniaki.push(i)
             }
-            let grupa = new Grupa(uczniaki,(rozmiar = -1), (ilosc = i))
+            let grupa = new Grupa(uczniaki,(rozmiar = i), (ilosc = -1))
             //if(j%i > 1){
             
             //let roznica = grupa.granice.najwiecej.length - grupa.granice.najmniej.length

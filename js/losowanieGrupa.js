@@ -31,14 +31,12 @@ function Grupa(uczniowie, rozmiar, ilosc) {
   //na tej podstawie resztę potrzebnych wartości
   if (rozmiar == -1) {
     this.iloscGrup = Number(ilosc);
-    this.rozmiarGrup = Math.round(
-      this.uczniowie.length / Number(this.iloscGrup)
-    );
+    this.rozmiarGrup = Math.floor(this.uczniowie.length / Number(this.iloscGrup));
    console.log("ilosc " + this.iloscGrup, "rozmiar " + this.rozmiarGrup);
   }
   if (ilosc == -1) {
     this.rozmiarGrup = Number(rozmiar);
-    this.iloscGrup = Math.round(this.uczniowie.length / this.rozmiarGrup);
+    this.iloscGrup = Math.floor(this.uczniowie.length / this.rozmiarGrup);
     console.log("rozmiar " + this.rozmiarGrup, "ilosc " + this.iloscGrup);
   }
 
@@ -97,7 +95,7 @@ function Grupa(uczniowie, rozmiar, ilosc) {
           : null;
       }
       //najwieksza grupa
-      let najwieksza = this.kompGrupy[0];
+      let najwieksza = this.kompGrupy[0]
       for (let i = 1; i < this.kompGrupy.length; i++) {
         this.kompGrupy[i].length > najwieksza.length
           ? (najwieksza = this.kompGrupy[i])
@@ -105,25 +103,20 @@ function Grupa(uczniowie, rozmiar, ilosc) {
       }
 
       return { najmniej: najmniejsza, najwiecej: najwieksza };
-    };
+    }
     //zapisuje wynik funkcji do zmiennej
     let granice = this.amplitudaGrup();
-    //this.granice = this.amplitudaGrup();
     let najmnIndeks = this.kompGrupy.indexOf(granice.najmniej);
     let najwIndeks = this.kompGrupy.indexOf(granice.najwiecej);
     //pętla oblicza różnicę między najmniejszą a najwiekszą grupą,
     //odejmuje od niej 1 i zabiera ww. różnicę z największej grupy i dodaje do najmniejszej
-    for (
-      let i = 0;
-      i < granice.najwiecej.length - granice.najmniej.length;
-      i++
-    ) {
+    for (let i = 0; i < granice.najwiecej.length - granice.najmniej.length; i++) {
       let wyjety = this.kompGrupy[najwIndeks].pop();
       this.kompGrupy[najmnIndeks].push(wyjety);
     }
-  };
+  }
   //wywolanie glownej metody
   this.przydzielGrupy();
   //wywolywanie bilansu nie zawsze jest potrzebne
-  if (this.uczniowie.length % this.rozmiarGrup > 1) this.bilansujGrupy();
+  for(let i=0;i<2;i++)this.bilansujGrupy();
 }
