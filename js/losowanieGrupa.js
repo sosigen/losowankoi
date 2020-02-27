@@ -27,6 +27,7 @@ function generujGrupe() {
 //główny konstruktor tworzący grupy
 function Grupa(uczniowie, rozmiar, ilosc) {
   this.uczniowie = uczniowie;
+  console.log(this.uczniowie)
   //w zaleznosci od tego czy dostepny jest rozmiar, czy ilosc generuje
   //na tej podstawie resztę potrzebnych wartości
   if (rozmiar == -1) {
