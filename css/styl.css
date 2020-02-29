@@ -69,6 +69,14 @@ label[for="grupy"] {
 label[for="uczniowie"] {
   float: left;
 }
+#jajo{
+  color: #dad7e0;
+  font-size: 40px;
+  position: fixed;
+  right: 200px;
+  bottom: 200px;
+  border-right:  solid rgb(93, 73, 84);
+}
 
 /*obszar wyniku*/
 .ikonka {

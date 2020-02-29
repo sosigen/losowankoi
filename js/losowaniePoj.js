@@ -12,6 +12,7 @@ function generujnumerek2(){
 function losujUcznia() {
   document.querySelector("#wynik").innerHTML = "";
   let max = document.getElementById("uczniowie").value;
-  const pytany = Math.round(Math.random() * max) + 1;
+  const pytany = Math.floor(Math.random() * max) + 1;
   stworzIkone(pytany, "#wynik");
+  jedyneczka(pytany)
 }
