@@ -75,8 +75,17 @@ label[for="uczniowie"] {
   position: fixed;
   right: 200px;
   bottom: 200px;
-  border-right:  solid rgb(93, 73, 84);
 }
+
+#jajo::after{
+  content: "";
+  position: absolute;
+  width: 3px;
+  height: 100%;
+  border-right: 3px solid #5d4954;
+  animation: fade 1s infinite;
+}
+
 
 /*obszar wyniku*/
 .ikonka {

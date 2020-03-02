@@ -14,5 +14,5 @@ function losujUcznia() {
   let max = document.getElementById("uczniowie").value;
   const pytany = Math.floor(Math.random() * max) + 1;
   stworzIkone(pytany, "#wynik");
-  jedyneczka(pytany)
+  if(screen.width > 1000) rozmowa(pytany)
 }

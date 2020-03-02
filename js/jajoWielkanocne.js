@@ -1,39 +1,50 @@
-let idx = 0
+let litera = 0
 let tekscik = ''
-function jedyneczka(numer, innyNapis){
-    if(screen.width > 1000){
-    let divo = document.querySelector('#jajo')
-    divo.innerText = ''
-    idx = 0
-    tekscik = ''
-    let napis = ''
-    if(numer != -1) napis = `Numer ${numer} dostanie dziś 1`
-    else napis = innyNapis
-    let pisanie = window.setInterval(function(){
-            dodajZnak(napis, divo, pisanie)
-    }, 200)
-    } 
+let numerTekstu = -1
+let uczen = 0
+function rozmowa(numer){
+    uczen = numer
+    let napisy = [`Numer ${numer} dostanie dziś 1`, `Może chociaż 3 się uda?`, `To 5- już tak na zachętę :)`, `powodzenia!`]
+        let divo = document.querySelector('#jajo')
+        if(divo.innerText.length > 0){
+            let odpisanie =  window.setInterval(function(){
+                usunZnak(divo, odpisanie)
+            }, 200)
+        }else if(++numerTekstu < napisy.length){
+            litera = 0
+            tekscik = ''
+            let pisanie = window.setInterval(function(){
+                dodajZnak(napisy[numerTekstu], divo, pisanie, uczen)
+            }, 200)
+        }
 }
-function dodajZnak(tekst, div, interval){
-    if(idx==tekst.length) {
+function dodajZnak(tekst, div, interval, uczen){
+    if(litera==tekst.length) {
         window.clearInterval(interval)
-        let pykanieKursora = window.setInterval(function(){
-            kursor(div)
-        }, 500)
         window.setTimeout(function(){
-            window.clearInterval(pykanieKursora)
-            jedyneczka(-1, 'Może chociaż 5- się uda?')
+            rozmowa(uczen)
         },3000)
     }else{
-        tekscik += tekst[idx]
+        tekscik += tekst[litera++]
         div.innerText = tekscik
-        idx++
     }
 
 }
-function kursor(div){
-    if(div.style.borderRight === '3px solid rgb(93, 73, 84)')
-        div.style.borderRight = '3px solid transparent'
-    else div.style.borderRight = '3px solid rgb(93, 73, 84)'
+function usunZnak(div, interval){
+    if(div.innerText.length==0){
+        window.clearInterval(interval)
+        window.setTimeout(function(){
+            rozmowa()
+        },2000)
+    }
+    div.innerText = div.innerText.substring(0, div.innerText.length -1)
 }
-  
+
+
+/*
+function kursor(div){
+    if(div.style.borderRight === '5px solid rgb(0, 0, 0)')
+        div.style.borderRight = '5px solid transparent'
+    else div.style.borderRight = '5px solid rgb(0, 0, 0)'
+}
+*/
