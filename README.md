@@ -1,13 +1,12 @@
 # losowankoi
 generator dobierający grupy i losujacy uczniow
 
-pomysły:
-  pole na szczesliwy numerek(na przykład niech go losuje)
-  pomijanie rozmiaru grupy i pokazywanie najbardziej trafnych
-  
- mozecie dodawac swoje jesli wam przyjda do glowy jakies
-
-do zrobienia:
-    lista uczniow w checkboxach do wyboru
-    logo
-    dopasowanie do rozdzielczosci
+krótkie wyjaśnienie funkcji:
+  #1 losowanie grup:
+    pozwala dokładnie wybrać uczniów oraz pożądany rozmiar/ilość grup, po czym losowo przydzielić uczniów
+    zębatka - dostosowanie obecności
+    strzałki - zmiana kryterium losowania rozmiar/ilosc
+  #2 losowanie pojedyncze:
+    pozwala wylosować 1 ucznia
+    
+pod znakiem zapytania znajduje się pomocniczna inforgrafika
