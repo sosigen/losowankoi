@@ -4,9 +4,11 @@ function wyswietl(wartosc, id) {
   }
 let aktywni = []
 let wyswietlListeUczniow = function(){
+    aktywni = []
     let iloscUczniow = document.querySelector('#uczniowie').value
     let ikony = document.querySelector('#ikony')
-    if(ikony.innerText === ''){
+    ikony.innerHTML = ''
+    //if(ikony.innerText === ''){
         for(let i=1; i<=iloscUczniow; i++){
             stworzIkone(i,'#ikony')
 
@@ -19,14 +21,14 @@ let wyswietlListeUczniow = function(){
             dzieci[i].dataset.aktywnosc = 'on'
             aktywni.push(Number(dzieci[i].innerText))
         }
-    }else{
-        ikony.innerHTML = ''
+    //}else{
+        
     }
     
     
     
 
-}
+
 let zmianaStanu = (ikonka) => {
     let wyswietlacz = document.querySelector('#wyswietlUczniow')
     if(ikonka.dataset.aktywnosc === 'on'){

@@ -49,6 +49,13 @@ body {
   background-image: linear-gradient(#5d4954, #5d4954);
   letter-spacing: 2px;
 }
+#nawigacja3{
+  color: #dad7e0;
+  text-decoration: none;
+}
+img{
+  margin: 50px;
+}
 .przycisk:hover {
   width: 140px;
   letter-spacing: 4px;
