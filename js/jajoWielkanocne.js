@@ -1,24 +1,28 @@
 let litera = 0
 let tekscik = ''
-let numerTekstu = -1
-let uczen = 0
-function rozmowa(numer){
-    uczen = numer
-    let napisy = [`Numer ${numer} dostanie dziś 1`, `Może chociaż 3 się uda?`, `To 5- już tak na zachętę :)`, `powodzenia!`]
-        let divo = document.querySelector('#jajo')
+let numerTekstu = 0
+let interwaly = []
+function rozmowa(){
+    for(let i=0; i<interwaly.length; i++) window.clearInterval(interwaly[i])
+    let divo = document.querySelector('#jajo')
+    divo.innerText = ''
+    let napisy = [`Ktoś tu dostanie dziś 1`, `Może chociaż 3 się uda?`, `To 5- już tak na zachętę :)`, `powodzenia!`]
         if(divo.innerText.length > 0){
             let odpisanie =  window.setInterval(function(){
                 usunZnak(divo, odpisanie)
             }, 200)
-        }else if(++numerTekstu < napisy.length){
+            interwaly.push(odpisanie)
+        }else if(numerTekstu++ <= napisy.length){
             litera = 0
             tekscik = ''
             let pisanie = window.setInterval(function(){
-                dodajZnak(napisy[numerTekstu], divo, pisanie, uczen)
+                dodajZnak(napisy[numerTekstu], divo, pisanie)
             }, 200)
+            interwaly.push(pisanie)
+            if(numerTekstu==napisy.length) numerTekstu = 0
         }
 }
-function dodajZnak(tekst, div, interval, uczen){
+function dodajZnak(tekst, div, interval){
     if(litera==tekst.length) {
         window.clearInterval(interval)
         window.setTimeout(function(){
@@ -36,6 +40,7 @@ function usunZnak(div, interval){
         window.setTimeout(function(){
             rozmowa()
         },2000)
+        
     }
     div.innerText = div.innerText.substring(0, div.innerText.length -1)
 }
